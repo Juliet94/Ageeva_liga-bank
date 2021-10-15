@@ -1,0 +1,9 @@
+.logo {
+  dispaly: block;
+  padding-bottom: 11px;
+  transition: opacity 0.25s ease-out;
+  
+  &:hover {
+    opacity: 0.5;
+  }
+}

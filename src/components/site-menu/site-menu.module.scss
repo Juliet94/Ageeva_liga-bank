@@ -1,0 +1,17 @@
+.list {
+  padding-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.list-item {
+  transition: opacity 0.25s ease-out;
+  
+  &:not(:last-child) {
+    margin-right: 25px;
+  }
+  
+  &:hover {
+    opacity: 0.5;
+  }
+}
