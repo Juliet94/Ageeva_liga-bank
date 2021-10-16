@@ -1,13 +1,19 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import PropTypes from 'prop-types';
 import styles from './logo.module.scss';
+import cn from 'classnames';
+import logo from '../../assets/images/logo.svg';
 
-function Logo() {
+function Logo({isMenuOpen = false}) {
   return (
-    <Link className={styles.logo} to="/">
-      <img />
-    </Link>
+    <div className={cn(styles.logo, isMenuOpen && styles.logo_menu_open)}>
+      <img src={logo} alt="Логотип Лига-Банк"/>
+    </div>
   );
 }
+
+Logo.propTypes = {
+  isMenuOpen: PropTypes.bool,
+};
 
 export default Logo;

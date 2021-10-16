@@ -1,26 +1,28 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
+import cn from 'classnames';
 import styles from './site-menu.module.scss';
 
-function SiteMenu() {
+function SiteMenu({isMenuOpen}) {
   return (
-    <ul>
-      <li>
+    <ul className={cn(styles.list, isMenuOpen && styles.list_menu_open)}>
+      <li className={styles.list_item}>
         <Link to="/">
           Услуги
         </Link>
       </li>
-      <li>
+      <li className={styles.list_item}>
         <Link to="/">
           Рассчитать кредит
         </Link>
       </li>
-      <li>
+      <li className={styles.list_item}>
         <Link to="/">
           Конвертер валют
         </Link>
       </li>
-      <li>
+      <li className={styles.list_item}>
         <Link to="/">
           Контакты
         </Link>
@@ -28,5 +30,9 @@ function SiteMenu() {
     </ul>
   );
 }
+
+SiteMenu.propTypes = {
+  isMenuOpen: PropTypes.bool.isRequired,
+};
 
 export default SiteMenu;
