@@ -4,19 +4,21 @@ import cn from 'classnames';
 
 import Logo from '../logo/logo';
 import SiteMenu from '../site-menu/site-menu';
+import Login from '../login/login';
 
 function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
-    if (isMenuOpen) {
+    if (isMenuOpen || isModalOpen) {
       document.body.style = 'overflow: hidden;';
     }
 
-    if (!isMenuOpen) {
+    if (!isMenuOpen && !isModalOpen) {
       document.body.style = 'overflow: visible;';
     }
-  }, [isMenuOpen]);
+  }, [isMenuOpen, isModalOpen]);
 
   return (
     <header className={styles.header}>
@@ -31,7 +33,14 @@ function Header() {
           <SiteMenu isMenuOpen={isMenuOpen}/>
         </nav>
         <div className={cn(styles.button_wrapper, isMenuOpen && styles.button_wrapper_menu_open)}>
-          <a className={cn(styles.link, isMenuOpen && styles.link_menu_open)} href="/">
+          <a
+            className={cn(styles.link, isMenuOpen && styles.link_menu_open)}
+            href="/"
+            onClick={(evt) => {
+              evt.preventDefault();
+              setIsModalOpen(true);
+            }}
+          >
             Войти в Интернет-банк
           </a>
           <button
@@ -40,6 +49,7 @@ function Header() {
             onClick={() => setIsMenuOpen(false)}
           />
         </div>
+        {isModalOpen && <Login isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />}
       </div>
     </header>
   );

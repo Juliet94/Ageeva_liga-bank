@@ -54,6 +54,7 @@
     margin-right: 11px;
     background-image: url('../../assets/images/mobile-menu.svg');
     background-repeat: no-repeat;
+    background-color: transparent;
   }
 }
 
@@ -75,6 +76,7 @@
 
     &_menu_open {
       display: flex;
+      width: 100%;
     }
   }
 }
@@ -159,6 +161,8 @@
     height: 15px;
     top: -305px;
     left: 275px;
+    background-color: transparent;
+    background-size: contain;
 
     &_menu_open {
       display: block;
