@@ -1,5 +1,6 @@
 .wrapper {
   display: grid;
   grid-template-rows: min-content 1fr min-content;
-  height: 100vh;
+  min-height: 100vh;
+  grid-template-columns: 100%;
 }

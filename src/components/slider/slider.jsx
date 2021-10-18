@@ -8,7 +8,7 @@ import 'swiper/components/pagination/pagination.scss';
 
 import styles from './slider.module.scss';
 
-SwiperCore.use([Pagination, Autoplay])
+SwiperCore.use([Pagination, Autoplay]);
 
 function Slider() {
   return (

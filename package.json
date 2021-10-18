@@ -16,7 +16,7 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
     "reselect": "^4.0.0",
-    "swiper": "^7.0.8"
+    "swiper": "^6.8.1"
   },
   "scripts": {
     "start": "react-scripts start",
