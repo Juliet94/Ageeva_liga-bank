@@ -17,13 +17,13 @@ function Slider() {
       <Swiper
         slidesPerView={1}
         pagination
-        autoplay={{delay: 4000, disableOnInteraction: false}}
+        // autoplay={{delay: 4000, disableOnInteraction: false}}
         loop
       >
         <SwiperSlide className={cn(styles.slide, styles.slide_cards)}>
           <div className={styles.wrapper}>
             <h2 className={cn(styles.heading, styles.heading_credit)}>
-              Лига банк
+              Лига Банк
             </h2>
             <p className={cn(styles.text, styles.text_credit)}>
               Кредиты на любой случай
@@ -36,7 +36,7 @@ function Slider() {
         <SwiperSlide className={cn(styles.slide, styles.slide_man)}>
           <div className={styles.wrapper}>
             <h2 className={styles.heading}>
-              Лига банк
+              Лига Банк
             </h2>
             <p className={styles.text}>
               Ваша уверенность в завтрашнем дне
@@ -46,7 +46,7 @@ function Slider() {
         <SwiperSlide className={cn(styles.slide, styles.slide_girl)}>
           <div className={styles.wrapper}>
             <h2 className={styles.heading}>
-              Лига банк
+              Лига Банк
             </h2>
             <p className={styles.text}>
               Всегда рядом

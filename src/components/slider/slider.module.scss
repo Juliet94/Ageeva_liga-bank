@@ -3,57 +3,90 @@
   display: flex;
   justify-content: center;
   background-repeat: no-repeat;
-  
-  @media (max-width: 767px) {
-    height: 228px;
+  background-size: cover;
+  background-position: center;
+
+  @media (min-width: 1366px) {
+    background-size: contain;
   }
-  
+
+  @media (max-width: 1023px) {
+    background-size: contain;
+    background-position: right;
+    height: 300px;
+  }
+
+  @media (max-width: 767px) {
+    height: 226px;
+  }
+
   &_cards {
     background-color: #2c36f2;
-    
+    background-image: url('../../assets/images/desktop-slider-cards.png');
+
     @media (max-width: 1023px) {
       background-image: url('../../assets/images/tablet-slider-cards.png');
-      background-size: contain;
-      background-position: right;
     }
-    
+
     @media (max-width: 767px) {
       background-image: url('../../assets/images/mobile-slider-card.jpg');
     }
   }
-  
+
   &_man {
-    background-color: #dcdcdc;
-    
+    background-color: #dde2ec;
+    background-image: url('../../assets/images/desktop-slider-man.jpg'),
+                      linear-gradient(to right, #dde2ec 0%, #dde2ec 50%, #F0F9FE 50%, #f4fbff 100%);
+
     @media (max-width: 1023px) {
       background-image: url('../../assets/images/tablet-slider-man.jpg');
-      background-size: contain;
-      background-position: right;
     }
-    
+
     @media (max-width: 767px) {
       background-image: url('../../assets/images/mobile-slider-man.jpg');
     }
   }
-  
+
   &_girl {
-    background-color: #87cefa;
-    
+    background-color: #e6f1fe;
+    background-image: url('../../assets/images/desktop-slider-girl.jpg');
+
     @media (max-width: 1023px) {
       background-image: url('../../assets/images/tablet-slider-girl.jpg');
-      background-size: contain;
-      background-position: right;
     }
-    
+
     @media (max-width: 767px) {
       background-image: url('../../assets/images/mobile-slider-girl.jpg');
     }
   }
 }
 
+:global(.swiper-pagination) {
+  padding-bottom: 25px;
+
+  @media (max-width: 1023px) {
+    padding-bottom: 0;
+  }
+
+  @media (max-width: 767px) {
+    margin-bottom: -4px;
+  }
+}
+
 :global(.swiper-pagination-bullet) {
   background-color: #2028b6;
   opacity: 1;
+
+  @media (max-width: 767px) {
+    width: 6px;
+    height: 6px;
+  }
+}
+
+:global(.swiper-container-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet) {
+  @media (max-width: 767px) {
+    margin: 0 3px;
+  }
 }
 
 :global(.swiper-pagination-bullet-active) {
@@ -65,51 +98,59 @@
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: flex-start;
   max-width: 900px;
   width: 100%;
-  padding: 50px;
-  
+  padding: 57px 35px;
+
   @media (max-width: 1023px) {
-    padding: 30px;
+    padding: 27px 86px;
   }
-  
+
   @media (max-width: 767px) {
-    padding: 15px;
+    padding: 9px 15px;
   }
 }
 
 .heading {
   font-size: 54px;
   font-weight: 700;
-  
+  margin-bottom: 10px;
+
   @media (max-width: 1023px) {
     font-size: 46px;
+    margin-bottom: 7px;
   }
-  
+
   @media (max-width: 767px) {
     font-size: 38px;
   }
-  
+
   &_credit {
-    color: f6f7ff;
+    color: #f6f7ff;
   }
 }
 
 .text {
   font-size: 22px;
-  
+  margin-top: 0;
+  margin-bottom: 35px;
+
   @media (max-width: 1023px) {
     font-size: 18px;
+    margin-bottom: 30px;
   }
-  
+
   @media (max-width: 767px) {
     font-size: 16px;
+    margin-bottom: 26px;
+    width: 150px;
   }
-  
+
   &_credit {
     color: #e0e1ea;
+    width: auto;
   }
 }
 
@@ -121,23 +162,35 @@
   min-height: 53px;
   background-color: #2c36f2;
   color: #f6f7ff;
-  padding: 20px 30px;
-  
+  min-width: 243px;
+  padding: 16px;
+  text-align: center;
+
   @media (max-width: 1023px) {
+    font-size: 16px;
     min-width: 206px;
     min-height: 48px;
-    font-size: 16px;
   }
-  
+
   @media (max-width: 767px) {
     font-size: 14px;
     min-width: 188px;
     min-height: 43px;
+    padding-top: 14px;
+    padding-bottom: 5px;
   }
-  
+
   &_credit {
     min-width: 234px;
     background-color: #f6f7ff;
     color: #1f1e25;
+
+    @media (max-width: 1023px) {
+      min-width: 206px;
+    }
+
+    @media (max-width: 767px) {
+      min-width: 188px;
+    }
   }
 }
