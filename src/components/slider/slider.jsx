@@ -9,7 +9,7 @@ import 'swiper/components/pagination/pagination.scss';
 
 import styles from './slider.module.scss';
 
-SwiperCore.use([Pagination, Autoplay]);-
+SwiperCore.use([Pagination, Autoplay]);
 
 function Slider() {
   return (
@@ -33,7 +33,7 @@ function Slider() {
             </Link>
           </div>
         </SwiperSlide>
-        <SwiperSlide className={styles.slide}>
+        <SwiperSlide className={cn(styles.slide, styles.slide_man)}>
           <div className={styles.wrapper}>
             <h2 className={styles.heading}>
               Лига банк
@@ -43,7 +43,7 @@ function Slider() {
             </p>
           </div>
         </SwiperSlide>
-        <SwiperSlide className={styles.slide}>
+        <SwiperSlide className={cn(styles.slide, styles.slide_girl)}>
           <div className={styles.wrapper}>
             <h2 className={styles.heading}>
               Лига банк
