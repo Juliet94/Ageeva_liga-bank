@@ -2,7 +2,46 @@
   height: 400px;
   display: flex;
   justify-content: center;
-  width: 1366px;
+  
+  @media (max-width: 767px) {
+    height: 228px;
+  }
+  
+  &_cards {
+    background-color: #2c36f2
+    
+    @media (max-width: 767px) {
+      background-image: url('../../assets/images/mobile-slider-card.jpg');
+      background-size: cover;
+      background-position: right;
+    }
+  }
+  
+  &_man {
+    
+    @media (max-width: 767px) {
+      background-image: url('../../assets/images/mobile-slider-man.jpg');
+      background-size: cover;
+      background-position: right;
+    }
+  }
+  
+  &_girl {
+    
+    @media (max-width: 767px) {
+      background-image: url('../../assets/images/mobile-slider-girl.jpg');
+      background-size: cover;
+      background-position: right;
+    }
+  }
+}
+
+:global(.swiper-pagination-bullet) {
+  background-color: #2028b6;
+}
+
+:global(.swiper-pagination-bullet-active) {
+  background-color: #f6f7ff;
 }
 
 .wrapper {
@@ -11,5 +50,76 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
-  max-width: 1366px;
+  max-width: 900px;
+  width: 100%;
+  padding: 50px;
+  
+  @media (max-width: 1023px) {
+    padding: 30px;
+  }
+  
+  @media (max-width: 767px) {
+    padding: 15px;
+  }
+}
+
+.heading {
+  font-size: 54px;
+  font-weight: 700;
+  
+  @media (max-width: 1023px) {
+    font-size: 46px;
+  }
+  
+  @media (max-width: 767px) {
+    font-size: 38px;
+  }
+  
+  &_credit {
+    color: f6f7ff;
+  }
+}
+
+.text {
+  font-size: 22px;
+  
+  @media (max-width: 1023px) {
+    font-size: 18px;
+  }
+  
+  @media (max-width: 767px) {
+    font-size: 16px;
+  }
+  
+  &_credit {
+    color: #e0e1ea;
+  }
+}
+
+.link {
+  display: block;
+  font-size: 18px;
+  font-weight: 500;
+  border-radius: 4px;
+  min_height: 53px;
+  background-color: #2c36f2;
+  color: #f6f7ff;
+  
+  @media (max-width: 1023px) {
+    min-width: 206px;
+    min-height: 48px;
+    font-size: 16px;
+  }
+  
+  @media (max-width: 767px) {
+    font-size: 14px;
+    min-width: 188px;
+    min-height: 43px;
+  }
+  
+  &_credit {
+    min-width: 234px;
+    background-color: #f6f7ff;
+    color: #1f1e25;
+  }
 }
