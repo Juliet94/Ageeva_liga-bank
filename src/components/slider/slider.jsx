@@ -3,13 +3,14 @@ import {Link} from 'react-router-dom';
 import cn from 'classnames';
 
 import {Swiper, SwiperSlide} from 'swiper/react';
-import SwiperCore, {Pagination, Autoplay} from 'swiper';
+import SwiperCore, {Pagination, Autoplay, A11y} from 'swiper';
 import 'swiper/swiper.scss';
 import 'swiper/components/pagination/pagination.scss';
+import 'swiper/components/a11y/a11y.scss';
 
 import styles from './slider.module.scss';
 
-SwiperCore.use([Pagination, Autoplay]);
+SwiperCore.use([Pagination, Autoplay, A11y]);
 
 function Slider() {
   return (
@@ -17,8 +18,9 @@ function Slider() {
       <Swiper
         slidesPerView={1}
         pagination
-        // autoplay={{delay: 4000, disableOnInteraction: false}}
+        autoplay={{delay: 4000, disableOnInteraction: false}}
         loop
+        a11y
       >
         <SwiperSlide className={cn(styles.slide, styles.slide_cards)}>
           <div className={styles.wrapper}>

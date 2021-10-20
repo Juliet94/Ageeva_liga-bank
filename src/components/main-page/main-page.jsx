@@ -3,6 +3,7 @@ import styles from './main-page.module.scss';
 
 import Header from '../header/header';
 import Slider from '../slider/slider';
+import Services from '../services/services';
 
 function MainPage() {
   return (
@@ -13,6 +14,7 @@ function MainPage() {
           Кредитный калькулятор Лига Банка
         </h1>
         <Slider />
+        <Services />
       </main>
     </div>
   );
