@@ -38,7 +38,7 @@
       align-items: flex-start;
       padding-top: 20px;
       z-index: 100;
-      overflow-y: hidden;
+      overflow-x: hidden;
     }
   }
 }
@@ -84,7 +84,12 @@
 .button_wrapper {
   position: relative;
 
+  @media (max-width: 767px) {
+    position: static;
+  }
+
   &_menu_open {
+    position: relative;
     width: 100%;
   }
 }
@@ -97,6 +102,11 @@
   @media (max-width: 1023px) {
     font-size: 0;
     width: 20px;
+  }
+
+  @media (max-width: 767px) {
+    position: absolute;
+    right: 17px;
   }
 
   &:hover {
@@ -127,9 +137,9 @@
     }
   }
 
-  @media (max-width: 767px) {
+  &_menu_open {
 
-    &_menu_open {
+    @media (max-width: 767px) {
       margin-bottom: 100vh;
       font-size: 16px;
       width: 100%;
@@ -138,6 +148,8 @@
       border-bottom: 1px solid #c1c2ca;
       height: 60px;
       padding-top: 20px;
+      position: relative;
+      right: 0;
 
       &::before {
         width: 20px;
@@ -153,19 +165,19 @@
   display: none;
 
   @media (max-width: 767px) {
-    position: absolute;
-    background-image: url('../../assets/images/button-close.svg');
-    background-repeat: no-repeat;
-    border: none;
-    width: 15px;
-    height: 15px;
-    top: -305px;
-    left: 275px;
-    background-color: transparent;
-    background-size: contain;
 
     &_menu_open {
       display: block;
+      position: absolute;
+      background-image: url('../../assets/images/button-close.svg');
+      background-repeat: no-repeat;
+      border: none;
+      width: 15px;
+      height: 15px;
+      top: -304px;
+      right: -1px;
+      background-color: transparent;
+      background-size: contain;
     }
   }
 }
