@@ -58,12 +58,12 @@ function Services() {
             a11y
           >
             <SwiperSlide
-              className={styles.slide_tabs}
+              className={cn(styles.slide_tabs, styles.slide_tabs_pig)}
               tabIndex='0'
               onFocus={() => swiper.slideTo(0)}
             >
               <p className={styles.text}>
-                Вклады Лига Банка - это выгодная инвестиция в свое будущее
+                Вклады Лига Банка &ndash; это выгодная <br /> инвестиция в свое будущее
               </p>
               <ul className={styles.list}>
                 <li className={styles.list_item}>
@@ -73,7 +73,7 @@ function Services() {
                   Разнообразные условия
                 </li>
                 <li className={styles.list_item}>
-                  Возможность ежемесячной капитализации или вывод на банковскую карту
+                  Возможность ежемесячной капитализации или вывод процентов на банковскую карту
                 </li>
               </ul>
               <Link className={styles.link} to="/">
@@ -81,14 +81,14 @@ function Services() {
               </Link>
             </SwiperSlide>
             <SwiperSlide
-              className={styles.slide_tabs}
+              className={cn(styles.slide_tabs, styles.slide_tabs_car)}
               tabIndex='0'
               onFocus={() => swiper.slideTo(1)}
             >
               <p className={styles.text}>
-                Лига Банк выдает кредиты под любые цели
+                Лига Банк выдает кредиты <br /> под любые цели
               </p>
-              <ul className={styles.list}>
+              <ul className={cn(styles.list, styles.list_car)}>
                 <li className={styles.list_item}>
                   Ипотечный кредит
                 </li>
@@ -99,17 +99,18 @@ function Services() {
                   Потребительский кредит
                 </li>
               </ul>
-              <p>
-                Рассчитайте ежемесячный платеж и ставку по кредиту воспользовавшись нашим <a href="/">кредитным калькулятором</a>
+              <p className={styles.text_with_link}>
+                Рассчитайте ежемесячный платеж <br /> и ставку по кредиту воспользовавшись <br /> нашим&nbsp;
+                <a className={styles.link_in_text} href="/">кредитным калькулятором</a>
               </p>
             </SwiperSlide>
             <SwiperSlide
-              className={styles.slide_tabs}
+              className={cn(styles.slide_tabs, styles.slide_tabs_lock)}
               tabIndex='0'
               onFocus={() => swiper.slideTo(2)}
             >
               <p className={styles.text}>
-                Лига Страхование - застрахуем все что захотите
+                Лига Страхование &mdash; застрахуем <br /> все что захотите
               </p>
               <ul className={styles.list}>
                 <li className={styles.list_item}>
@@ -127,18 +128,18 @@ function Services() {
               </Link>
             </SwiperSlide>
             <SwiperSlide
-              className={styles.slide_tabs}
+              className={cn(styles.slide_tabs, styles.slide_tabs_mobile)}
               tabIndex='0'
               onFocus={() => swiper.slideTo(3)}
             >
-              <p className={styles.text}>
-                Лига Банк - это огромное количество онлайн-сервисов для вашего удобства
+              <p className={cn(styles.text, styles.text_app)}>
+                Лига Банк &mdash; это огромное количество онлайн-сервисов для вашего удобства
               </p>
               <ul className={styles.list}>
                 <li className={styles.list_item}>
-                  Моблильный банк, <br /> который всегда под рукой
+                  Мобильный банк, <br /> который всегда под рукой
                 </li>
-                <li className={styles.list_item}>
+                <li className={cn(styles.list_item, styles.list_item_app)}>
                   Приложение Лига-проездной позволит вам оплачивать билеты по всему миру
                 </li>
               </ul>
