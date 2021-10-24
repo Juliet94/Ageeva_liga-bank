@@ -1,4 +1,6 @@
 import React, {useState} from 'react';
+import styles from './credit.module.scss';
+
 import Calculator from '../calculator/calculator';
 import Application from '../application/application';
 
@@ -11,7 +13,7 @@ function Credit() {
   });
 
   return (
-    <section>
+    <section className={styles.section}>
       <div>
         <h2>
           Кредитный калькулятор

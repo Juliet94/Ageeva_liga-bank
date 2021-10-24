@@ -1,9 +1,9 @@
-import React from'react;
+import React from 'react';
 
 function Offer() {
   return(
     <h3>
-      Наше предложение
+      {/*Наше предложение*/}
     </h3>
   );
 }

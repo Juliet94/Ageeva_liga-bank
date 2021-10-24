@@ -4,6 +4,7 @@ import styles from './main-page.module.scss';
 import Header from '../header/header';
 import Slider from '../slider/slider';
 import Services from '../services/services';
+import Credit from '../credit/credit';
 
 function MainPage() {
   return (
@@ -15,6 +16,7 @@ function MainPage() {
         </h1>
         <Slider />
         <Services />
+        <Credit />
       </main>
     </div>
   );

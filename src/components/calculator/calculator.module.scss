@@ -1,0 +1,32 @@
+.form {
+  display: flex;
+}
+
+.wrapper_price {
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.input {
+  text-align: center;
+}
+
+.price_control_button {
+  position: absolute;
+
+  &_minus {
+    top: 25px;
+    left: 0;
+  }
+
+  &_plus {
+    top: 25px;
+    right: 0;
+  }
+}
