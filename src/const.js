@@ -2,6 +2,9 @@ export const CreditInfo = {
   mortgage: {
     LABEL: 'Ипотечное кредитование',
     VALUE: 'mortgage',
+    OFFER_TITLE: 'ипотеки',
+    ERROR_TITLE: 'ипотечные',
+    MIN_CREDIT_SUM: 500000,
     PRICE: {
       TITLE: 'недвижимости',
       MIN: 1200000,
@@ -18,10 +21,16 @@ export const CreditInfo = {
       MAX: 30,
       STEP: 1,
     },
+    CHECKBOX: {
+      CAPITAL: 'Использовать материнский капитал',
+    },
   },
   car: {
     lABEL: 'Автомобильное кредитование',
     VALUE: 'car',
+    OFFER_TITLE: 'автокредита',
+    ERROR_TITLE: 'автокредиты',
+    MIN_CREDIT_SUM: 200000,
     PRICE: {
       TITLE: 'автомобиля',
       MIN: 500000,
@@ -37,6 +46,10 @@ export const CreditInfo = {
       MIN: 1,
       MAX: 5,
       STEP: 1,
+    },
+    CHECKBOX: {
+      CAR: 'Оформить КАСКО в нашем банке',
+      LIFE: 'Оформить Страхование жизни в нашем банке',
     },
   },
 };

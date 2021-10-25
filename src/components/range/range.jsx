@@ -1,10 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styles from './range.module.scss';
 
 function Range({value, onRangeChange, min, max, step, isTime = false}) {
   return (
     <div>
       <input
+        className={styles.input}
         type="range"
         value={value}
         min={min}
@@ -12,7 +14,7 @@ function Range({value, onRangeChange, min, max, step, isTime = false}) {
         step={step}
         onChange={onRangeChange}
       />
-      <div>
+      <div className={styles.span_wrapper}>
         <span>
           {isTime ? `${min} лет` : `${min * 100}%`}
         </span>

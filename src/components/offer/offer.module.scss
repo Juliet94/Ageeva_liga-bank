@@ -1,0 +1,16 @@
+.wrapper {
+  width: 500px;
+  height: 389px;
+}
+
+.inner_wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+
+.span_wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}

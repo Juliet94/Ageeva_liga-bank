@@ -8,6 +8,7 @@ import Offer from '../offer/offer';
 
 import styles from './calculator.module.scss';
 import {CreditInfo} from '../../const';
+import {getMoneyString, getYearString, getNumber} from '../../utils';
 
 const options = [
   { value: CreditInfo.mortgage.VALUE, label: CreditInfo.mortgage.LABEL },
@@ -39,20 +40,25 @@ function Calculator() {
   const [time, setTime] = useState('');
   const [rangeTime, setRangeTime] = useState('');
 
+  const [maternalCapital, setMaternalCapital] = useState(false);
+  const [lifeInsurance, setLifeInsurance] = useState(false);
+  const [carInsurance, setCarInsurance] = useState(false);
+
   const [priceError, setPriceError] = useState(false);
 
   useEffect(() => {
     if (purpose === CreditInfo.mortgage.VALUE || purpose === CreditInfo.car.VALUE) {
-      setPrice(CreditInfo[purpose].PRICE.MIN);
-      setDownPayment(CreditInfo[purpose].PRICE.MIN * CreditInfo[purpose].DOWN_PAYMENT.MIN);
+      setPrice(getMoneyString(CreditInfo[purpose].PRICE.MIN));
+      setDownPayment(getMoneyString(CreditInfo[purpose].PRICE.MIN * CreditInfo[purpose].DOWN_PAYMENT.MIN));
       setRangeDownPayment(CreditInfo[purpose].DOWN_PAYMENT.MIN);
-      setTime(CreditInfo[purpose].TIME.MIN);
+      setTime(getYearString(CreditInfo[purpose].TIME.MIN));
+      setRangeTime(CreditInfo[purpose].TIME.MIN);
     }
   }, [purpose]);
 
   const onPriceChange = (evt) => {
     setPrice(evt.target.value);
-    setDownPayment(Math.round(evt.target.value * CreditInfo[purpose].DOWN_PAYMENT.MIN));
+    setDownPayment(getMoneyString(Math.round(evt.target.value * CreditInfo[purpose].DOWN_PAYMENT.MIN)));
     setRangeDownPayment(CreditInfo[purpose].DOWN_PAYMENT.MIN);
 
     if ((evt.target.value < CreditInfo[purpose].PRICE.MIN) || (evt.target.value > CreditInfo[purpose].PRICE.MAX)) {
@@ -62,34 +68,47 @@ function Calculator() {
     }
   };
 
+  const onPriceFocus = (evt) => {
+    setPrice(getNumber(evt.target.value));
+  };
+
   const onPriceBlur = () => {
     setPriceError(false);
 
     if (price < CreditInfo[purpose].PRICE.MIN) {
-      setPrice(CreditInfo[purpose].PRICE.MIN);
-      setDownPayment(Math.round(CreditInfo[purpose].PRICE.MIN * CreditInfo[purpose].DOWN_PAYMENT.MIN));
-    }
-    if (price > CreditInfo[purpose].PRICE.MAX) {
-      setPrice(CreditInfo[purpose].PRICE.MAX);
-      setDownPayment(Math.round(CreditInfo[purpose].PRICE.MAX * CreditInfo[purpose].DOWN_PAYMENT.MIN));
+      setPrice(getMoneyString(CreditInfo[purpose].PRICE.MIN));
+      setDownPayment(getMoneyString(Math.round(CreditInfo[purpose].PRICE.MIN * CreditInfo[purpose].DOWN_PAYMENT.MIN)));
+    } else if (getNumber(price) > CreditInfo[purpose].PRICE.MAX) {
+      setPrice(getMoneyString(CreditInfo[purpose].PRICE.MAX));
+      setDownPayment(getMoneyString(Math.round(CreditInfo[purpose].PRICE.MAX * CreditInfo[purpose].DOWN_PAYMENT.MIN)));
+    } else {
+      setPrice(getMoneyString(price));
+      // setDownPayment(getMoneyString(downPayment));
     }
   };
 
   const onDownPaymentChange = (evt) => {
     setDownPayment(evt.target.value);
-    setRangeDownPayment(evt.target.value / price);
+    setRangeDownPayment(evt.target.value / getNumber(price));
   };
 
-  const onDownPaymentBlur = () => {
-    if (downPayment < price * CreditInfo[purpose].DOWN_PAYMENT.MIN) {
-      setDownPayment(price * CreditInfo[purpose].DOWN_PAYMENT.MIN);
+  const onDownPaymentBlur = (evt) => {
+
+    if (getNumber(downPayment) < getNumber(price) * CreditInfo[purpose].DOWN_PAYMENT.MIN) {
+      setDownPayment(getMoneyString(getNumber(price) * CreditInfo[purpose].DOWN_PAYMENT.MIN));
       setRangeDownPayment(CreditInfo[purpose].DOWN_PAYMENT.MIN);
+    } else {
+      setDownPayment(getMoneyString(evt.target.value));
     }
+  };
+
+  const onDownPaymentFocus = (evt) => {
+    setDownPayment(getNumber(evt.target.value));
   };
 
   const onRangeDownPaymentChange = (evt) => {
     setRangeDownPayment(evt.target.value);
-    setDownPayment(Math.round(price * evt.target.value));
+    setDownPayment(getMoneyString(Math.round(getNumber(price) * evt.target.value)));
   };
 
   const onTimeChange = (evt) => {
@@ -99,25 +118,29 @@ function Calculator() {
 
   const onTimeBlur = () => {
     if (time < CreditInfo[purpose].TIME.MIN) {
-      setTime(CreditInfo[purpose].TIME.MIN);
+      setTime(getYearString(CreditInfo[purpose].TIME.MIN));
       setRangeTime(CreditInfo[purpose].TIME.MIN);
-    }
-
-    if (time > CreditInfo[purpose].TIME.MAX) {
-      setTime(CreditInfo[purpose].TIME.MAX);
+    } else if (time > CreditInfo[purpose].TIME.MAX) {
+      setTime(getYearString(CreditInfo[purpose].TIME.MAX));
       setRangeTime(CreditInfo[purpose].TIME.MAX);
+    } else {
+      setTime(getYearString(time));
     }
+  };
+
+  const onTimeFocus = (evt) => {
+    setTime(getNumber(evt.target.value));
   };
 
   const onRangeTimeChange = (evt) => {
     setRangeTime(evt.target.value);
-    setTime(evt.target.value);
+    setTime(getYearString(evt.target.value));
   };
 
   return (
     <form className={styles.form}>
-      <div>
-        <div>
+      <div className={styles.wrapper}>
+        <div className={styles.wrapper_select}>
           <h3>
             Шаг 1. Цель кредита
           </h3>
@@ -130,7 +153,7 @@ function Calculator() {
           />
         </div>
         {(purpose === CreditInfo.mortgage.VALUE || purpose === CreditInfo.car.VALUE) && (
-          <div>
+          <div className={styles.wrapper_parameters}>
             <div className={styles.wrapper_price}>
               <h3>
                 Шаг 2. Введите параметры кредита
@@ -146,6 +169,7 @@ function Calculator() {
                   value={price}
                   onChange={onPriceChange}
                   onBlur={onPriceBlur}
+                  onFocus={onPriceFocus}
                 />
                 <button
                   className={cn(styles.price_control_button, styles.price_control_button_minus)}
@@ -166,7 +190,7 @@ function Calculator() {
                   }}
                 />
                 <span>
-                  От {CreditInfo[purpose].PRICE.MIN} до {CreditInfo[purpose].PRICE.MAX} рублей
+                  От {getMoneyString(CreditInfo[purpose].PRICE.MIN)} до {getMoneyString(CreditInfo[purpose].PRICE.MAX)} рублей
                 </span>
               </label>
             </div>
@@ -179,6 +203,7 @@ function Calculator() {
                   value={downPayment}
                   onChange={onDownPaymentChange}
                   onBlur={onDownPaymentBlur}
+                  onFocus={onDownPaymentFocus}
                 />
                 <Range
                   value={+rangeDownPayment}
@@ -198,6 +223,7 @@ function Calculator() {
                   value={time}
                   onChange={onTimeChange}
                   onBlur={onTimeBlur}
+                  onFocus={onTimeFocus}
                 />
                 <Range
                   value={+rangeTime}
@@ -209,13 +235,41 @@ function Calculator() {
                 />
               </label>
             </div>
-            <div>
-              <Checkbox />
-            </div>
+            {purpose === CreditInfo.mortgage.VALUE && (
+              <div className={styles.wrapper_checkbox}>
+                <Checkbox
+                  labelText={CreditInfo[purpose].CHECKBOX.CAPITAL}
+                  value={maternalCapital}
+                  setCheckboxState={setMaternalCapital}
+                />
+              </div>)}
+            {purpose === CreditInfo.car.VALUE && (
+              <div className={styles.wrapper_checkbox}>
+                <Checkbox
+                  labelText={CreditInfo[purpose].CHECKBOX.CAR}
+                  value={carInsurance}
+                  setCheckboxState={setCarInsurance}
+                />
+                <Checkbox
+                  labelText={CreditInfo[purpose].CHECKBOX.LIFE}
+                  value={lifeInsurance}
+                  setCheckboxState={setLifeInsurance}
+                />
+              </div>)}
           </div>
         )}
-        <Offer />
       </div>
+      {(purpose === CreditInfo.mortgage.VALUE || purpose === CreditInfo.car.VALUE) && (
+        <Offer
+          purpose={purpose}
+          price={getNumber(price)}
+          downPayment={getNumber(downPayment)}
+          time={getNumber(time)}
+          maternalCapital={maternalCapital}
+          lifeInsurance={lifeInsurance}
+          carInsurance={carInsurance}
+        />
+      )}
     </form>
   );
 }
