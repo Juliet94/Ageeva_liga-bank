@@ -6,11 +6,12 @@ function Checkbox({labelText, value, setCheckboxState}) {
   return (
     <label className={styles.label}>
       <input
+        className={styles.input}
         type="checkbox"
         value={value}
         onClick={() => setCheckboxState(!value)}
       />
-      {labelText}
+      <span className={styles.span}> {labelText} </span>
     </label>
   );
 }

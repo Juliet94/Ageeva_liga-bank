@@ -4,7 +4,7 @@ import styles from './range.module.scss';
 
 function Range({value, onRangeChange, min, max, step, isTime = false}) {
   return (
-    <div>
+    <div className={styles.wrapper}>
       <input
         className={styles.input}
         type="range"
@@ -15,10 +15,10 @@ function Range({value, onRangeChange, min, max, step, isTime = false}) {
         onChange={onRangeChange}
       />
       <div className={styles.span_wrapper}>
-        <span>
+        <span className={styles.span}>
           {isTime ? `${min} лет` : `${min * 100}%`}
         </span>
-        {isTime && <span>{max} лет</span>}
+        {isTime && <span className={styles.span}>{max} лет</span>}
       </div>
     </div>
   );

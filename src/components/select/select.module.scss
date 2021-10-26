@@ -1,0 +1,52 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.button {
+  font-family: 'Roboto', Arial, sans-serif;
+  position: relative;
+  min-height: 60px;
+  background-color: transparent;
+  border: 1px solid #1f1e25;
+  border-radius: 4px;
+  font-weight: 500;
+  text-align: left;
+  padding-left: 22px;
+  padding-top: 5px;
+  font-size: 16px;
+
+  &::before {
+    content: '';
+    position: absolute;
+    width: 18px;
+    height: 10px;
+    background-repeat: no-repeat;
+    background-image: url('../../assets/images/select-arrow.svg');
+    right: 23px;
+    top: 27px;
+  }
+
+  &_select_open {
+    border-radius: 4px 4px 0 0;
+
+    &::before {
+      transform: rotate(180deg);
+    }
+  }
+}
+
+.list {
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid #1f1e25;
+  border-top: none;
+  border-radius: 0 0 4px 4px;
+}
+
+.list_item {
+  min-height: 60px;
+  &:not(:last-child) {
+    border-bottom: 1px solid #c1c2ca;
+  }
+}

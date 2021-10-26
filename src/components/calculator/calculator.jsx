@@ -1,36 +1,14 @@
 import React, {useState, useEffect} from 'react';
-import Select from 'react-select';
 import cn from 'classnames';
 
+import Select from '../select/select';
 import Range from '../range/range';
 import Checkbox from '../checkbox/checkbox';
 import Offer from '../offer/offer';
 
 import styles from './calculator.module.scss';
 import {CreditInfo} from '../../const';
-import {getMoneyString, getYearString, getNumber} from '../../utils';
-
-const options = [
-  { value: CreditInfo.mortgage.VALUE, label: CreditInfo.mortgage.LABEL },
-  { value: CreditInfo.car.VALUE, label: CreditInfo.car.lABEL },
-];
-
-const customStyles = {
-  option: (provided) => ({
-    ...provided,
-    borderBottom: '1px solid #c1c2ca',
-    padding: 20,
-  }),
-  indicatorSeparator: () => ({
-    display: 'none',
-  }),
-  placeholder: (provided) => ({
-    ...provided,
-    color: '#1f1e25',
-    fontWeight: '500',
-  }),
-};
-
+import {getSpaces, getMoneyString, getYearString, getNumber} from '../../utils';
 
 function Calculator() {
   const [purpose, setPurpose] = useState('');
@@ -141,25 +119,22 @@ function Calculator() {
     <form className={styles.form}>
       <div className={styles.wrapper}>
         <div className={styles.wrapper_select}>
-          <h3>
+          <h3 className={styles.heading}>
             Шаг 1. Цель кредита
           </h3>
           <Select
-            value={purpose.value}
-            onChange={(value) => setPurpose(value.value)}
-            styles={customStyles}
-            options={options}
-            placeholder="Выберите цель кредита"
+            purpose={purpose}
+            setPurpose={setPurpose}
           />
         </div>
         {(purpose === CreditInfo.mortgage.VALUE || purpose === CreditInfo.car.VALUE) && (
           <div className={styles.wrapper_parameters}>
             <div className={styles.wrapper_price}>
-              <h3>
+              <h3 className={styles.heading}>
                 Шаг 2. Введите параметры кредита
               </h3>
               <label className={styles.label}>
-                Стоимость {CreditInfo[purpose].PRICE.TITLE}
+                <span className={styles.label_text}> Стоимость {CreditInfo[purpose].PRICE.TITLE} </span>
                 {priceError && (
                   <span>Некорректное значение</span>
                 )}
@@ -174,29 +149,29 @@ function Calculator() {
                 <button
                   className={cn(styles.price_control_button, styles.price_control_button_minus)}
                   type="button"
-                  disabled={+price <= CreditInfo[purpose].PRICE.MIN}
+                  disabled={getNumber(price) <= CreditInfo[purpose].PRICE.MIN}
                   onClick={() => {
-                    setPrice(price - CreditInfo[purpose].PRICE.STEP);
-                    setDownPayment(Math.round((price - CreditInfo[purpose].PRICE.STEP) * CreditInfo[purpose].DOWN_PAYMENT.MIN));
+                    setPrice(getMoneyString(getNumber(price) - CreditInfo[purpose].PRICE.STEP));
+                    setDownPayment(getMoneyString(Math.round((getNumber(price) - CreditInfo[purpose].PRICE.STEP) * CreditInfo[purpose].DOWN_PAYMENT.MIN)));
                   }}
                 />
                 <button
                   className={cn(styles.price_control_button, styles.price_control_button_plus)}
                   type="button"
-                  disabled={+price >= CreditInfo[purpose].PRICE.MAX}
+                  disabled={getNumber(price) >= CreditInfo[purpose].PRICE.MAX}
                   onClick={() => {
-                    setPrice(price + CreditInfo[purpose].PRICE.STEP);
-                    setDownPayment(Math.round((price + CreditInfo[purpose].PRICE.STEP) * CreditInfo[purpose].DOWN_PAYMENT.MIN));
+                    setPrice(getMoneyString(getNumber(price) + CreditInfo[purpose].PRICE.STEP));
+                    setDownPayment(getMoneyString(Math.round((getNumber(price) + CreditInfo[purpose].PRICE.STEP) * CreditInfo[purpose].DOWN_PAYMENT.MIN)));
                   }}
                 />
-                <span>
-                  От {getMoneyString(CreditInfo[purpose].PRICE.MIN)} до {getMoneyString(CreditInfo[purpose].PRICE.MAX)} рублей
+                <span className={styles.price_from}>
+                  От {getSpaces(CreditInfo[purpose].PRICE.MIN)}&ensp;до {getMoneyString(CreditInfo[purpose].PRICE.MAX)}
                 </span>
               </label>
             </div>
             <div>
               <label className={styles.label}>
-                Первоначальный взнос
+                <span className={styles.label_text}> Первоначальный взнос </span>
                 <input
                   className={styles.input}
                   type="text"
@@ -216,9 +191,9 @@ function Calculator() {
             </div>
             <div>
               <label className={styles.label}>
-                Срок кредитования
+                <span className={styles.label_text}> Срок кредитования </span>
                 <input
-                  className={styles.input}
+                  className={cn(styles.input, styles.input_year)}
                   type="text"
                   value={time}
                   onChange={onTimeChange}

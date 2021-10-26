@@ -6,10 +6,9 @@ const declOfNum = (number, titles) => {
   return titles[ (number%100>4 && number%100<20)? 2 : cases[(number%10<5)?number%10:5] ];
 };
 
-export const getMoneyString = (money) => {
-  const moneyString = money.toString().replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, '$1 ');
-  return `${moneyString} ${declOfNum(money, RUBLE_TITLES)}`;
-};
+export const getSpaces = (number) => number.toString().replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, '$1 ');
+
+export const getMoneyString = (money) => `${getSpaces(money)} ${declOfNum(money, RUBLE_TITLES)}`;
 
 export const getYearString = (year) => `${year} ${declOfNum(year, YEAR_TITLES)}`;
 

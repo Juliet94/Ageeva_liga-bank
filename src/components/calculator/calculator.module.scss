@@ -7,6 +7,7 @@
 .wrapper {
   display: flex;
   flex-direction: column;
+  min-width: 320px;
   max-width: 600px;
   width: 100%;
   margin-right: 70px;
@@ -16,8 +17,14 @@
   max-width: 600px;
 }
 
+.heading {
+  font-size: 22px;
+  font-weight: 500;
+}
+
 .wrapper_parameters {
   max-width: 600px;
+  padding-top: 19px;
 }
 
 .wrapper_price {
@@ -30,13 +37,26 @@
   display: flex;
   flex-direction: column;
   position: relative;
+  margin-bottom: 14px;
+}
+
+.label_text {
+  color: #394959;
   margin-bottom: 10px;
 }
 
 .input {
   text-align: center;
   min-height: 60px;
-  margin-bottom: 5px;
+  margin-bottom: 7px;
+  font-size: 18px;
+  font-weight: 500;
+  color: #1f1e25;
+  font-family: 'Roboto', Arial, sans-serif;
+
+  &_year {
+    margin-bottom: 3px;
+  }
 }
 
 .price_control_button {
@@ -50,16 +70,25 @@
   background-size: contain;
 
   &_minus {
-    top: 40px;
-    left: 10px;
+    top: 50px;
+    left: 24px;
     background-image: url('../../assets/images/minus.svg');
   }
 
   &_plus {
-    top: 40px;
-    right: 10px;
+    top: 50px;
+    right: 24px;
     background-image: url('../../assets/images/plus.svg');
   }
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.price_from {
+  font-size: 14px;
+  color: #707C87;
 }
 
 .wrapper_checkbox {

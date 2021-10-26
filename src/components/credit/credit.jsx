@@ -15,7 +15,7 @@ function Credit() {
   return (
     <section className={styles.section}>
       <div className={styles.wrapper}>
-        <h2>
+        <h2 className={styles.heading}>
           Кредитный калькулятор
         </h2>
         <Calculator setCreditData={setCreditData} />

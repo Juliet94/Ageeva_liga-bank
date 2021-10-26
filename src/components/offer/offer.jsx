@@ -82,52 +82,55 @@ function Offer({purpose, price, downPayment, time, maternalCapital, lifeInsuranc
   return(
     <div className={styles.wrapper}>
       {calcSum() < CreditInfo[purpose].MIN_CREDIT_SUM ?
-        <div>
-          <p>
-            Наш банк не выдаёт {CreditInfo[purpose].ERROR_TITLE} кредиты меньше {getMoneyString(CreditInfo[purpose].MIN_CREDIT_SUM)} рублей.
+        <div className={styles.error_wrapper}>
+          <p className={styles.text_error}>
+            Наш банк не выдаёт {CreditInfo[purpose].ERROR_TITLE} кредиты меньше {getMoneyString(CreditInfo[purpose].MIN_CREDIT_SUM)}.
           </p>
-          <p>
-            Попробуйте использовать другие параметры для расчёта.
+          <p className={styles.text_hint}>
+            Попробуйте использовать другие<br /> параметры для расчёта.
           </p>
         </div> :
         <div>
-          <h3>
+          <h3 className={styles.heading}>
             Наше предложение
           </h3>
           <div className={styles.inner_wrapper}>
             <div className={styles.span_wrapper}>
-              <span>
-                {getMoneyString(calcSum())} рублей
+              <span className={styles.value}>
+                {getMoneyString(calcSum())}
               </span>
-              <span>
+              <span className={styles.label}>
               Сумма {CreditInfo[purpose].OFFER_TITLE}
               </span>
             </div>
             <div className={styles.span_wrapper}>
-              <span>
+              <span className={styles.value}>
                 {getRateString()}%
               </span>
-              <span>
+              <span className={styles.label}>
               Процентная ставка
               </span>
             </div>
             <div className={styles.span_wrapper}>
-              <span>
-                {getMoneyString(calcMonthlyPayment())} рублей
+              <span className={styles.value}>
+                {getMoneyString(calcMonthlyPayment())}
               </span>
-              <span>
+              <span className={styles.label}>
               Ежемесячный платеж
               </span>
             </div>
             <div className={styles.span_wrapper}>
-              <span>
-                {getMoneyString(calcMonthlyIncome())} рублей
+              <span className={styles.value}>
+                {getMoneyString(calcMonthlyIncome())}
               </span>
-              <span>
+              <span className={styles.label}>
               Необходимый доход
               </span>
             </div>
           </div>
+          <button className={styles.button}>
+            Оформить заявку
+          </button>
         </div>}
     </div>
   );

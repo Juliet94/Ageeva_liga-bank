@@ -26,7 +26,7 @@ export const CreditInfo = {
     },
   },
   car: {
-    lABEL: 'Автомобильное кредитование',
+    LABEL: 'Автомобильное кредитование',
     VALUE: 'car',
     OFFER_TITLE: 'автокредита',
     ERROR_TITLE: 'автокредиты',
