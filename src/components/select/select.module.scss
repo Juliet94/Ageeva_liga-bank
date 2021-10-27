@@ -49,7 +49,8 @@
 }
 
 .list_item {
-  
+  min-height: 60px;
+
   &:not(:last-child) {
     border-bottom: 1px solid #c1c2ca;
   }
@@ -59,7 +60,7 @@
   text-align: left;
   padding-top: 5px;
   padding-left: 22px;
-  min-height: 60px;
+
   
   @media (max-width: 767px) {
     padding-left: 10px;
