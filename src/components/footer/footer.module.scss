@@ -1,0 +1,49 @@
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 224px;
+  background-color: #f6f7ff;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-areas:
+    "logo" "menu" "mobile" "phone" "socials"
+    "address" "menu" "mobile" "phone" "socials"
+  ;
+  grid-column-gap: 20px;
+}
+
+.logo {
+  grid-area: logo;
+}
+
+.address {
+  grid-area: address;
+}
+
+.menu {
+  grid-area: menu;
+}
+
+.link {
+  font-weight: 500;
+}
+
+.text {
+  font-size: 12px;
+  line-height: 140%;
+}
+
+.mobile {
+  grid-area: mobile;
+}
+
+.phone {
+  grid-area: phone;
+}
+
+.socials {
+  grid-area: socials;
+}
