@@ -2,6 +2,10 @@
   display: flex;
   max-width: 1366px;
   width: 100%;
+  
+  @media (max-width: 1023px) {
+    flex-direction: column;
+  }
 }
 
 .wrapper {
@@ -20,6 +24,14 @@
 .heading {
   font-size: 22px;
   font-weight: 500;
+  
+  @media (max-width: 1023px) {
+    font-size: 18px;
+  }
+  
+  @media (max-width: 767px) {
+    font-size: 16px;
+  }
 }
 
 .wrapper_parameters {
@@ -45,6 +57,10 @@
   margin-bottom: 10px;
 }
 
+.error {
+  color: red;
+}
+
 .input {
   text-align: center;
   min-height: 60px;
@@ -53,9 +69,17 @@
   font-weight: 500;
   color: #1f1e25;
   font-family: 'Roboto', Arial, sans-serif;
+  
+  @media (max-width: 1023px) {
+    font-size: 16px;
+  }
 
   &_year {
     margin-bottom: 3px;
+  }
+  
+  &_error:focus {
+    border-color: red;
   }
 }
 

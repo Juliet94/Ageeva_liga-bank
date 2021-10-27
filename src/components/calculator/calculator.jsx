@@ -136,10 +136,10 @@ function Calculator() {
               <label className={styles.label}>
                 <span className={styles.label_text}> Стоимость {CreditInfo[purpose].PRICE.TITLE} </span>
                 {priceError && (
-                  <span>Некорректное значение</span>
+                  <span className={styles.error} >Некорректное значение</span>
                 )}
                 <input
-                  className={styles.input}
+                  className={cn(styles.input, priceError && styles.input_error)}
                   type="text"
                   value={price}
                   onChange={onPriceChange}
