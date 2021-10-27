@@ -14,4 +14,8 @@
 
 .span {
   padding-left: 5px;
+
+  @media (max-width: 767px) {
+    font-size: 14px;
+  }
 }

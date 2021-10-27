@@ -15,9 +15,10 @@
   padding-left: 22px;
   padding-top: 5px;
   font-size: 16px;
-  
+
   @media (max-width: 767px) {
-    padding-left: 10px;
+    padding-left: 13px;
+    padding-top: 4px;
   }
 
   &::before {
@@ -29,6 +30,11 @@
     background-image: url('../../assets/images/select-arrow.svg');
     right: 23px;
     top: 27px;
+
+    @media (max-width: 767px) {
+      right: 13px;
+      top: 23px;
+    }
   }
 
   &_select_open {
@@ -49,7 +55,6 @@
 }
 
 .list_item {
-  min-height: 60px;
 
   &:not(:last-child) {
     border-bottom: 1px solid #c1c2ca;
@@ -57,12 +62,21 @@
 }
 
 .input {
-  text-align: left;
-  padding-top: 5px;
-  padding-left: 22px;
 
-  
-  @media (max-width: 767px) {
-    padding-left: 10px;
+  &:hover {
+    cursor: pointer;
   }
+}
+
+.label {
+  display: block;
+  padding-left: 25px;
+  padding-top: 22px;
+  text-align: left;
+  min-height: 60px;
+
+  @media (max-width: 767px) {
+    padding-left: 13px;
+  }
+
 }

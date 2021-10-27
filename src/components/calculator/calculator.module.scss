@@ -2,7 +2,7 @@
   display: flex;
   max-width: 1366px;
   width: 100%;
-  
+
   @media (max-width: 1023px) {
     flex-direction: column;
   }
@@ -11,42 +11,60 @@
 .wrapper {
   display: flex;
   flex-direction: column;
-  min-width: 320px;
   max-width: 600px;
   width: 100%;
   margin-right: 70px;
-  
+
   @media (max-width: 1023px) {
     margin-right: 0;
+    max-width: 678px;
+    margin-bottom: 37px;
   }
-}
 
-.wrapper_select {
-  max-width: 600px;
+  @media (max-width: 767px) {
+    margin-bottom: 27px;
+  }
 }
 
 .heading {
   font-size: 22px;
   font-weight: 500;
-  
+
   @media (max-width: 1023px) {
     font-size: 18px;
+    margin-bottom: 20px;
   }
-  
+
   @media (max-width: 767px) {
     font-size: 16px;
+    margin-bottom: 17px;
+
+    &_step_two {
+      margin-bottom: 14px;
+    }
   }
 }
 
 .wrapper_parameters {
-  max-width: 600px;
   padding-top: 19px;
+
+  @media (max-width: 767px) {
+    padding-top: 10px;
+  }
 }
 
 .wrapper_price {
   display: flex;
   flex-direction: column;
   margin-bottom: 10px;
+
+  @media (max-width: 1023px) {
+    margin-bottom: 4px;
+  }
+
+  @media (max-width: 767px) {
+    margin-bottom: 0;
+  }
 }
 
 .label {
@@ -54,6 +72,28 @@
   flex-direction: column;
   position: relative;
   margin-bottom: 14px;
+
+  &_down_payment {
+
+    @media (max-width: 1023px) {
+      margin-bottom: 10px;
+    }
+
+    @media (max-width: 767px) {
+      margin-bottom: 3px;
+    }
+  }
+
+  &_year {
+
+    @media (max-width: 1023px) {
+      margin-bottom: 10px;
+    }
+
+    @media (max-width: 767px) {
+      margin-bottom: 5px;
+    }
+  }
 }
 
 .label_text {
@@ -63,6 +103,8 @@
 
 .error {
   color: red;
+  position: absolute;
+  right: 0;
 }
 
 .input {
@@ -73,7 +115,7 @@
   font-weight: 500;
   color: #1f1e25;
   font-family: 'Roboto', Arial, sans-serif;
-  
+
   @media (max-width: 1023px) {
     font-size: 16px;
   }
@@ -81,32 +123,39 @@
   &_year {
     margin-bottom: 3px;
   }
-  
+
   &_error:focus {
     border-color: red;
+    outline-color: red;
+    color: red;
   }
 }
 
 .price_control_button {
   position: absolute;
-  width: 16px;
-  height: 16px;
+  width: 32px;
+  height: 32px;
   background-repeat: no-repeat;
   border: none;
   background-position: center;
   background-color: transparent;
-  background-size: contain;
+  background-size: 16px;
+  padding: 0;
 
   &_minus {
-    top: 50px;
-    left: 24px;
+    left: 15px;
+    top: 41px;
     background-image: url('../../assets/images/minus.svg');
   }
 
   &_plus {
-    top: 50px;
-    right: 24px;
+    top: 42px;
+    right: 16px;
     background-image: url('../../assets/images/plus.svg');
+
+    @media (max-width: 767px) {
+      right: 7px;
+    }
   }
 
   &:hover {

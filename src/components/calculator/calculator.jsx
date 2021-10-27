@@ -118,7 +118,7 @@ function Calculator() {
   return (
     <form className={styles.form}>
       <div className={styles.wrapper}>
-        <div className={styles.wrapper_select}>
+        <div>
           <h3 className={styles.heading}>
             Шаг 1. Цель кредита
           </h3>
@@ -130,7 +130,7 @@ function Calculator() {
         {(purpose === CreditInfo.mortgage.VALUE || purpose === CreditInfo.car.VALUE) && (
           <div className={styles.wrapper_parameters}>
             <div className={styles.wrapper_price}>
-              <h3 className={styles.heading}>
+              <h3 className={cn(styles.heading, styles.heading_step_two)}>
                 Шаг 2. Введите параметры кредита
               </h3>
               <label className={styles.label}>
@@ -170,7 +170,7 @@ function Calculator() {
               </label>
             </div>
             <div>
-              <label className={styles.label}>
+              <label className={cn(styles.label, styles.label_down_payment)}>
                 <span className={styles.label_text}> Первоначальный взнос </span>
                 <input
                   className={styles.input}
@@ -190,7 +190,7 @@ function Calculator() {
               </label>
             </div>
             <div>
-              <label className={styles.label}>
+              <label className={cn(styles.label, styles.label_year)}>
                 <span className={styles.label_text}> Срок кредитования </span>
                 <input
                   className={cn(styles.input, styles.input_year)}
