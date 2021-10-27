@@ -75,10 +75,8 @@ function Offer({purpose, price, downPayment, time, maternalCapital, lifeInsuranc
 
   const getRateString = () => {
     const rate = calcRate();
-    
-    const string = rate.toString().replace(/\./g,',');
 
-    return string.padEnd(4, '0');
+    return rate.toString().replace(/\./g,',');
   };
 
   return(
