@@ -5,6 +5,7 @@ import Header from '../header/header';
 import Slider from '../slider/slider';
 import Services from '../services/services';
 import Credit from '../credit/credit';
+import Map from '../map/map';
 
 function MainPage() {
   return (
@@ -17,6 +18,7 @@ function MainPage() {
         <Slider />
         <Services />
         <Credit />
+        <Map />
       </main>
     </div>
   );

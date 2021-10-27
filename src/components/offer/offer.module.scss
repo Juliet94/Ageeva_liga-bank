@@ -8,12 +8,15 @@
   @media (max-width: 1023px) {
     max-width: 678px;
     padding: 34px 60px;
+    margin-bottom: 35px;
   }
 
   @media (max-width: 767px) {
+    margin-top: 9px;
     min-width: 290px;
     min-height: 433px;
     padding: 19px 15px;
+    margin-bottom: 17px;
   }
 }
 
