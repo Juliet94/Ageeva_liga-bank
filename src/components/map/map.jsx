@@ -7,7 +7,7 @@ import mapMarker from '../../assets/images/map-marker.svg';
 import styles from './map.module.scss';
 import 'leaflet/dist/leaflet.css';
 
-const CITIES_COORDINARES = [
+const CITIES_COORDINATES = [
   {
     lat: 55.752696619704075,
     lng: 37.6326487652558,
@@ -64,7 +64,7 @@ function Map() {
             attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           />
-          {CITIES_COORDINARES.map((position) =>
+          {CITIES_COORDINATES.map((position) =>
             <Marker key={position} position={[position.lat, position.lng]} icon={markerIcon} />,
           )}
         </MapContainer>

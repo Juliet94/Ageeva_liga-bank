@@ -1,0 +1,25 @@
+.list {
+  display: flex;
+  min-width: 100px;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 13px;
+
+  @media (max-width: 767px) {
+    margin-top: 0;
+  }
+}
+
+.list_item {
+  transition: opacity 0.25s ease-out;
+
+  @media (max-width: 1023px) {
+    &:not(:last-child) {
+      margin-right: 20px;
+    }
+  }
+
+  &:hover {
+    opacity: 0.5;
+  }
+}

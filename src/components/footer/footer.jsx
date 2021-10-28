@@ -1,5 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import cn from 'classnames';
 import styles from './footer.module.scss';
 
 import Logo from '../logo/logo';
@@ -14,28 +15,28 @@ function Footer() {
         </div>
         <div className={styles.address}>
           <p className={styles.text}>
-            150015, г. Москва, ул. Московская, д. 32 <br /> Генеральная лицензия Банка России №1050 <br /> Лига Банк, 2019
+            150015, г. Москва, ул. Московская, д.&nbsp;32 <br /> Генеральная лицензия Банка России №1050 <br /> Ⓒ Лига Банк, 2019
           </p>
         </div>
         <div className={styles.menu}>
           <nav>
-            <ul>
-              <li>
+            <ul className={styles.list}>
+              <li className={styles.list_item}>
                 <Link className={styles.link} to="/">
                   Услуги
                 </Link>
               </li>
-              <li>
+              <li className={styles.list_item}>
                 <Link className={styles.link} to="/">
                   Рассчитать кредит
                 </Link>
               </li>
-              <li>
+              <li className={styles.list_item}>
                 <Link className={styles.link} to="/">
-                  Конакты
+                  Контакты
                 </Link>
               </li>
-              <li>
+              <li className={styles.list_item}>
                 <Link className={styles.link} to="/">
                   Задать вопрос
                 </Link>
@@ -44,7 +45,7 @@ function Footer() {
           </nav>
         </div>
         <div className={styles.mobile}>
-          <a className={styles.link} href="tel: *0904">
+          <a className={cn(styles.link, styles.link_mobile)} href="tel: *0904">
             *0904
           </a>
           <p className={styles.text}>
@@ -52,7 +53,7 @@ function Footer() {
           </p>
         </div>
         <div className={styles.phone}>
-          <a className={styles.link} href="tel: 88001112233">
+          <a className={cn(styles.link, styles.link_phone)} href="tel: 88001112233">
             8 800 111 22 33
           </a>
           <p className={styles.text}>
@@ -66,3 +67,5 @@ function Footer() {
     </footer>
   );
 }
+
+export default  Footer;

@@ -7,14 +7,14 @@
 .wrapper {
   max-width: 1366px;
   width: 100%;
-  padding: 26px 98px;
+  padding: 33px 98px 110px;
 
   @media (max-width: 1023px) {
-    padding: 0 45px 26px;
+    padding: 0 45px 80px;
   }
 
   @media (max-width: 767px) {
-    padding: 0 0 26px;
+    padding: 0 0 60px;
   }
 }
 

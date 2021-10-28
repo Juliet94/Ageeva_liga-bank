@@ -6,6 +6,7 @@ import Slider from '../slider/slider';
 import Services from '../services/services';
 import Credit from '../credit/credit';
 import Map from '../map/map';
+import Footer from '../footer/footer';
 
 function MainPage() {
   return (
@@ -20,6 +21,7 @@ function MainPage() {
         <Credit />
         <Map />
       </main>
+      <Footer />
     </div>
   );
 }
