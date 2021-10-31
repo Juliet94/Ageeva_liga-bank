@@ -1,7 +1,9 @@
-import React, {useState, useEffect, useRef,} from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 import PropTypes from 'prop-types';
 
 import styles from './application.module.scss';
+
+import Popup from '../popup/popup';
 
 import {CreditInfo} from '../../const';
 import {useLocalStorage} from '../../hooks/useLocalStorage';
@@ -14,13 +16,13 @@ const ApplicationInput = {
 
 function Application({creditData, setCreditData}) {
   const [name, setName] = useLocalStorage(ApplicationInput.NAME, '');
-  const [phone, setPhone] = useLocalStrage(ApplicationInput.PHONE, '');
+  const [phone, setPhone] = useLocalStorage(ApplicationInput.PHONE, '');
   const [email, setEmail] = useLocalStorage(ApplicationInput.EMAIL, '');
-  
+
   const [isPopupOpen, setIsPopupOpen] = useState(false);
-  
+
   const nameRef = useRef(null);
-  
+
   useEffect(() => {
     nameRef.current.focus();
   }, []);
@@ -33,7 +35,7 @@ function Application({creditData, setCreditData}) {
   } = creditData;
 
   let applicationNumber = 1;
-  
+
   const onSubmitButtonClick = () => {
     if (name && phone && email) {
       setCreditData({
@@ -43,11 +45,11 @@ function Application({creditData, setCreditData}) {
         time: '',
       });
       localStorage.clear();
-      applicationNumber++
+      applicationNumber++;
       setIsPopupOpen(true);
       document.body.style = 'overflow: hidden;';
     }
-  }
+  };
 
   return (
     <div className={styles.wrapper}>

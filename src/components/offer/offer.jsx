@@ -78,7 +78,7 @@ function Offer({purpose, price, downPayment, time, maternalCapital, lifeInsuranc
 
     return rate.toString().replace(/\./g,',').padEnd(4, '0');
   };
-  
+
   const onSubmitButtonClick = (evt) => {
     evt.preventDefault();
     setCreditData({

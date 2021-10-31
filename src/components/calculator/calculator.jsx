@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import PropTypes from 'prop-types';
 import cn from 'classnames';
 
 import Select from '../select/select';
@@ -249,5 +250,9 @@ function Calculator({setCreditData}) {
     </form>
   );
 }
+
+Calculator.propTypes = {
+  setCreditData: PropTypes.func.isRequired,
+};
 
 export default Calculator;
