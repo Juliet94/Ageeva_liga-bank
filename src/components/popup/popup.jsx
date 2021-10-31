@@ -8,10 +8,10 @@ function Popup({isPopupOpen, setIsPopupOpen}) {
   const onCloseButtonClick = () => {
     setIsPopupOpen(false);
     document.body.style = 'overflow: visible;';
-  }
+  };
 
   return (
-    <ReactModal 
+    <ReactModal
       className={styles.modal}
       overlayClassName={styles.overlay}
       isOpen={isPopupOpen}
