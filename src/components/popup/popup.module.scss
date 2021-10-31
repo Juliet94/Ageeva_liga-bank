@@ -1,0 +1,40 @@
+.modal {
+  width: 100%;
+  max-width: 500px;
+  min-height: 193px;
+}
+
+.overlay {
+  background-color: rgba(88, 87, 87, 0.6);
+  z-index: 1000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.button {
+  background-color: transparent;
+  border: none;
+  background-image: url('../../assets/images/button-close.svg');
+  background-repeat: no-repeat;
+  background-size: 17px;
+  width: 20px;
+  height: 20px;
+  
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.text_title {
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 140%;
+}
+
+.text_description {
+  color: #394959;
+  line-height: 140%;
+}

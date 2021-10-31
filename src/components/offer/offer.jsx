@@ -22,7 +22,7 @@ const Rate = {
   },
 };
 
-function Offer({purpose, price, downPayment, time, maternalCapital, lifeInsurance, carInsurance}) {
+function Offer({purpose, price, downPayment, time, maternalCapital, lifeInsurance, carInsurance, setCreditData}) {
 
   const calcSum = () => {
     const sum = price - downPayment;
@@ -78,6 +78,16 @@ function Offer({purpose, price, downPayment, time, maternalCapital, lifeInsuranc
 
     return rate.toString().replace(/\./g,',').padEnd(4, '0');
   };
+  
+  const onSubmitButtonClick = (evt) => {
+    evt.preventDefault();
+    setCreditData({
+      purpose: purpose,
+      price: price,
+      downPayment: downPayment,
+      time: time,
+    });
+  };
 
   return(
     <div className={styles.wrapper}>
@@ -128,7 +138,11 @@ function Offer({purpose, price, downPayment, time, maternalCapital, lifeInsuranc
               </span>
             </div>
           </div>
-          <button className={styles.button}>
+          <button
+            className={styles.button}
+            type="submit"
+            onClick={onSubmitButtonClick}
+          >
             Оформить заявку
           </button>
         </div>}
@@ -144,6 +158,7 @@ Offer.propTypes = {
   maternalCapital: PropTypes.bool,
   lifeInsurance: PropTypes.bool,
   carInsurance: PropTypes.bool,
+  setCreditData: PropTypes.func.isRequired,
 };
 
 export default Offer;

@@ -7,14 +7,14 @@ import styles from './login.module.scss';
 import {useLocalStorage} from '../../hooks/useLocalStorage';
 import logo from '../../assets/images/logo-modal.svg';
 
-const ModalInputs = {
+const ModalInput = {
   LOGIN: 'login',
   PASSWORD: 'password',
 };
 
 function Login({isModalOpen, setIsModalOpen}) {
-  const [login, setLogin] = useLocalStorage(ModalInputs.LOGIN, '');
-  const [password, setPassword] = useLocalStorage(ModalInputs.PASSWORD, '');
+  const [login, setLogin] = useLocalStorage(ModalInput.LOGIN, '');
+  const [password, setPassword] = useLocalStorage(ModalInput.PASSWORD, '');
   const [buttonShowPressed, setButtonShowPressed] = useState(false);
 
   const loginRef = useRef('');

@@ -24,6 +24,10 @@ export const CreditInfo = {
     CHECKBOX: {
       CAPITAL: 'Использовать материнский капитал',
     },
+    APPLICATION: {
+      PURPOSE_NAME: 'Ипотека',
+      PRICE_NAME: 'недвижимости',
+    },
   },
   car: {
     LABEL: 'Автомобильное кредитование',
@@ -50,6 +54,10 @@ export const CreditInfo = {
     CHECKBOX: {
       CAR: 'Оформить КАСКО в нашем банке',
       LIFE: 'Оформить Страхование жизни в нашем банке',
+    },
+    APPLICATION: {
+      PURPOSE_NAME: 'Автокредит',
+      PRICE_NAME: 'автомобиля',
     },
   },
 };

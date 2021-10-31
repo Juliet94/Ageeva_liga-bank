@@ -19,7 +19,7 @@ function Credit() {
           Кредитный калькулятор
         </h2>
         <Calculator setCreditData={setCreditData} />
-        <Application creditData={creditData} />
+        {creditData.purpose && <Application creditData={creditData} setCreditData={setCreditData} />}
       </div>
     </section>
   );

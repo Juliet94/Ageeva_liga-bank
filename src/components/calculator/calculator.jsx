@@ -10,7 +10,7 @@ import styles from './calculator.module.scss';
 import {CreditInfo} from '../../const';
 import {getSpaces, getMoneyString, getYearString, getNumber} from '../../utils';
 
-function Calculator() {
+function Calculator({setCreditData}) {
   const [purpose, setPurpose] = useState('');
   const [price, setPrice] = useState('');
   const [downPayment, setDownPayment] = useState('');
@@ -243,6 +243,7 @@ function Calculator() {
           maternalCapital={maternalCapital}
           lifeInsurance={lifeInsurance}
           carInsurance={carInsurance}
+          setCreditData={setCreditData}
         />
       )}
     </form>
