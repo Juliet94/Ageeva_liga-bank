@@ -11,25 +11,25 @@ function Socials() {
   return (
     <ul className={styles.list}>
       <li className={styles.list_item}>
-        <Link>
+        <Link to="/">
           <span className="visually-hidden"> Facebook </span>
           <img src={facebook} alt="Иконка facebook" />
         </Link>
       </li>
       <li className={styles.list_item}>
-        <Link>
+        <Link to="/">
           <span className="visually-hidden"> Instagram </span>
           <img src={instagram} alt="Иконка instagram" />
         </Link>
       </li>
       <li className={styles.list_item}>
-        <Link>
+        <Link to="/">
           <span className="visually-hidden"> Twitter </span>
           <img src={twitter} alt="Иконка twitter" />
         </Link>
       </li>
       <li className={styles.list_item}>
-        <Link>
+        <Link to="/">
           <span className="visually-hidden"> Youtube </span>
           <img src={youtube} alt="Иконка youtube" />
         </Link>

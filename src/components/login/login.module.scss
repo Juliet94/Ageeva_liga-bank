@@ -23,7 +23,7 @@
 
 .overlay {
   background-color: rgba(88, 87, 87, 0.6);
-  z-index: 1000;
+  z-index: 10;
   position: fixed;
   top: 0;
   left: 0;
@@ -61,13 +61,15 @@
   border: none;
   background-color: transparent;
   background-size: 17px;
+  transition: opacity 0.25s ease-out;
 
   @media (max-width: 767px) {
     margin-right: -4px;
   }
-  
+
   &:hover {
     cursor: pointer;
+    opacity: 0.5;
   }
 }
 

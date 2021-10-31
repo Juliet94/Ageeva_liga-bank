@@ -3,6 +3,7 @@ import styles from './credit.module.scss';
 
 import Calculator from '../calculator/calculator';
 import Application from '../application/application';
+import Popup from '../popup/popup';
 
 function Credit() {
   const [creditData, setCreditData] = useState({
@@ -11,6 +12,7 @@ function Credit() {
     downPayment: '',
     time: '',
   });
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
 
   return (
     <section className={styles.section}>
@@ -19,7 +21,8 @@ function Credit() {
           Кредитный калькулятор
         </h2>
         <Calculator setCreditData={setCreditData} />
-        {creditData.purpose && <Application creditData={creditData} setCreditData={setCreditData} />}
+        {creditData.purpose && <Application creditData={creditData} setCreditData={setCreditData} setIsPopupOpen={setIsPopupOpen} />}
+        {isPopupOpen && <Popup isPopupOpen={isPopupOpen} setIsPopupOpen={setIsPopupOpen} />}
       </div>
     </section>
   );

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import {CreditInfo} from '../../const';
-import {getMoneyString} from '../../utils';
+import {getMoneyString, getYearString} from '../../utils';
 import styles from './offer.module.scss';
 
 const MATERNAL_CAPITAL_VALUE = 470000;
@@ -83,9 +83,9 @@ function Offer({purpose, price, downPayment, time, maternalCapital, lifeInsuranc
     evt.preventDefault();
     setCreditData({
       purpose: purpose,
-      price: price,
-      downPayment: downPayment,
-      time: time,
+      price: getMoneyString(price),
+      downPayment: getMoneyString(downPayment),
+      time: getYearString(time),
     });
   };
 

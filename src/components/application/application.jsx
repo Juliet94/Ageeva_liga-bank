@@ -1,9 +1,8 @@
-import React, {useState, useEffect, useRef} from 'react';
+import React, {useEffect, useRef} from 'react';
 import PropTypes from 'prop-types';
+import InputMask from 'react-input-mask';
 
 import styles from './application.module.scss';
-
-import Popup from '../popup/popup';
 
 import {CreditInfo} from '../../const';
 import {useLocalStorage} from '../../hooks/useLocalStorage';
@@ -14,12 +13,12 @@ const ApplicationInput = {
   EMAIL: 'email',
 };
 
-function Application({creditData, setCreditData}) {
+let applicationNumber = 1;
+
+function Application({creditData, setCreditData, setIsPopupOpen}) {
   const [name, setName] = useLocalStorage(ApplicationInput.NAME, '');
   const [phone, setPhone] = useLocalStorage(ApplicationInput.PHONE, '');
   const [email, setEmail] = useLocalStorage(ApplicationInput.EMAIL, '');
-
-  const [isPopupOpen, setIsPopupOpen] = useState(false);
 
   const nameRef = useRef(null);
 
@@ -34,9 +33,7 @@ function Application({creditData, setCreditData}) {
     time,
   } = creditData;
 
-  let applicationNumber = 1;
-
-  const onSubmitButtonClick = () => {
+  const onFormSubmit = () => {
     if (name && phone && email) {
       setCreditData({
         purpose: '',
@@ -53,7 +50,7 @@ function Application({creditData, setCreditData}) {
 
   return (
     <div className={styles.wrapper}>
-      <h3>
+      <h3 className={styles.heading}>
         Шаг 3. Оформление заявки
       </h3>
       <div className={styles.text_wrapper}>
@@ -96,9 +93,10 @@ function Application({creditData, setCreditData}) {
           {time}
         </span>
       </div>
-      <form>
+      <form className={styles.form} onSubmit={onFormSubmit}>
         <div>
           <label>
+            <span className="visually-hidden"> Введите ФИО </span>
             <input
               className={styles.input}
               type="text"
@@ -106,49 +104,54 @@ function Application({creditData, setCreditData}) {
               ref={nameRef}
               value={name}
               onChange={(evt) => setName(evt.target.value)}
+              required
             />
           </label>
         </div>
-        <div>
+        <div className={styles.input_wrapper}>
           <label>
-            <input
+            <span className="visually-hidden"> Введите телефон </span>
+            <InputMask
               className={styles.input}
               placeholder="Телефон"
+              type="tel"
               value={phone}
               onChange={(evt) => setPhone(evt.target.value)}
+              mask="+7 (999) 999-99-99"
+              required
             />
           </label>
           <label>
+            <span className="visually-hidden"> Введите почту </span>
             <input
               className={styles.input}
               type="email"
               placeholder="E-mail"
               value={email}
               onChange={(evt) => setEmail(evt.target.value)}
+              required
             />
           </label>
         </div>
-        <button
-          className={styles.button}
-          type="submit"
-          onClick={onSubmitButtonClick}
-        >
-          Отправить
-        </button>
+        <div className={styles.button_wrapper}>
+          <button className={styles.button} type="submit">
+            Отправить
+          </button>
+        </div>
       </form>
-      {isPopupOpen && <Popup isPopupOpen={isPopupOpen} setIsPopupOpen={setIsPopupOpen} />}
     </div>
   );
 }
 
 Application.propTypes = {
-  creditData: PropTypes.shapeOf({
+  creditData: PropTypes.shape({
     purpose: PropTypes.string.isRequired,
     price: PropTypes.string.isRequired,
     downPayment: PropTypes.string.isRequired,
     time: PropTypes.string.isRequired,
   }).isRequired,
   setCreditData: PropTypes.func.isRequired,
+  setIsPopupOpen: PropTypes.func.isRequired,
 };
 
 export default Application;

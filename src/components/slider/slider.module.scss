@@ -165,6 +165,7 @@
   min-width: 243px;
   padding: 16px;
   text-align: center;
+  transition: background-color 0.25s ease-out;
 
   @media (max-width: 1023px) {
     font-size: 16px;
@@ -180,6 +181,11 @@
     padding-bottom: 5px;
   }
 
+  &:hover {
+    cursor: pointer;
+    background-color: darken(#2c36f2, 10);
+  }
+
   &_credit {
     min-width: 234px;
     background-color: #f6f7ff;
@@ -192,5 +198,11 @@
     @media (max-width: 767px) {
       min-width: 188px;
     }
+
+    &:hover {
+      background-color: darken(#f6f7ff, 10);
+    }
   }
+
+
 }

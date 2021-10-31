@@ -112,6 +112,7 @@
   border-radius: 4px;
   text-align: center;
   border: none;
+  transition: background-color 0.25s ease-out;
 
   @media (max-width: 1023px) {
     min-width: 558px;
@@ -120,5 +121,10 @@
   @media (max-width: 767px) {
     min-width: 260px;
     font-size: 14px;
+  }
+
+  &:hover {
+    cursor: pointer;
+    background-color: darken(#2c36f2, 10);
   }
 }

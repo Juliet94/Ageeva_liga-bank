@@ -2,6 +2,27 @@
   width: 100%;
   max-width: 500px;
   min-height: 193px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #f6f7ff;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  padding: 30px 50px 10px;
+  border-radius: 4px;
+
+  @media (max-width: 1023px) {
+    max-width: 678px;
+  }
+
+  @media (max-width: 767px) {
+    max-width: 290px;
+    min-height: 198px;
+    padding: 18px 25px 10px;
+  }
 }
 
 .overlay {
@@ -19,10 +40,29 @@
   border: none;
   background-image: url('../../assets/images/button-close.svg');
   background-repeat: no-repeat;
-  background-size: 17px;
-  width: 20px;
-  height: 20px;
-  
+  background-size: 18px;
+  width: 22px;
+  height: 22px;
+  position: absolute;
+  right: 21px;
+  top: 24px;
+
+  @media (max-width: 1023px) {
+    right: 24px;
+    top: 28px;
+    background-size: 19px;
+    width: 23px;
+    height: 23px;
+  }
+
+  @media (max-width: 767px) {
+    right: 10px;
+    top: 13px;
+    background-size: 17px;
+    width: 21px;
+    height: 21px;
+  }
+
   &:hover {
     cursor: pointer;
   }
@@ -32,9 +72,20 @@
   font-size: 22px;
   font-weight: 500;
   line-height: 140%;
+  margin-bottom: 0;
+
+  @media (max-width: 767px) {
+    font-size: 18px;
+    text-align: center;
+    max-width: 198px;
+  }
 }
 
 .text_description {
   color: #394959;
   line-height: 140%;
+  text-align: center;
+  max-width: 300px;
+  margin-bottom: 0;
+  margin-top: 11px;
 }

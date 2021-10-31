@@ -96,6 +96,7 @@
 
 .list_item {
   line-height: 140%;
+  transition: opacity 0.25s ease-out;
 
   &:not(:last-child) {
     margin-bottom: 9px;
@@ -104,11 +105,17 @@
       margin-bottom: 6px;
     }
   }
+
+  &:hover {
+    cursor: pointer;
+    opacity: 0.5;
+  }
 }
 
 .link {
   font-weight: 500;
   position: relative;
+  transition: opacity 0.25s ease-out;
 
   @media (max-width: 767px) {
     font-size: 14px;
@@ -166,6 +173,11 @@
         left: -32px;
       }
     }
+  }
+
+  &:hover {
+    cursor: pointer;
+    opacity: 0.5;
   }
 }
 

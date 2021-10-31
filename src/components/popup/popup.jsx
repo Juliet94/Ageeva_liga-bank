@@ -17,7 +17,10 @@ function Popup({isPopupOpen, setIsPopupOpen}) {
       isOpen={isPopupOpen}
       shouldCloseOnOverlayClick
       shouldCloseOnEsc
-      onRequestClose={() => setIsPopupOpen(false)}
+      onRequestClose={() => {
+        setIsPopupOpen(false);
+        document.body.style = 'overflow: visible;';
+      }}
       ariaHideApp={false}
     >
       <button
@@ -26,7 +29,7 @@ function Popup({isPopupOpen, setIsPopupOpen}) {
         onClick={onCloseButtonClick}
       />
       <p className={styles.text_title}>
-        Спасибо за обращение в наш банк
+        Спасибо за обращение в наш банк.
       </p>
       <p className={styles.text_description}>
         Наш менеджер скоро свяжется с вами по указанному номеру телефона
