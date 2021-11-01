@@ -101,7 +101,7 @@ function Services() {
               </ul>
               <p className={styles.text_with_link}>
                 Рассчитайте ежемесячный платеж <br /> и ставку по кредиту воспользовавшись <br /> нашим&nbsp;
-                <a className={styles.link_in_text} href="/">кредитным калькулятором</a>
+                <a className={styles.link_in_text} href={'#credit'}>кредитным калькулятором</a>
               </p>
             </SwiperSlide>
             <SwiperSlide

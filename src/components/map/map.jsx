@@ -79,7 +79,7 @@ const markerIcon = new leaflet.Icon({
 
 function Map() {
   return (
-    <section className={styles.section}>
+    <section className={styles.section} id="map">
       <div className={styles.wrapper}>
         <h2 className={styles.heading}>
           Отделения Лига Банка

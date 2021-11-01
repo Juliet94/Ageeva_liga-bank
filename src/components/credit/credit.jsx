@@ -15,7 +15,7 @@ function Credit() {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
 
   return (
-    <section className={styles.section}>
+    <section className={styles.section} id="credit" >
       <div className={styles.wrapper}>
         <h2 className={styles.heading}>
           Кредитный калькулятор

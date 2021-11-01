@@ -1,5 +1,4 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
 import cn from 'classnames';
 
 import {Swiper, SwiperSlide} from 'swiper/react';
@@ -30,9 +29,9 @@ function Slider() {
             <p className={cn(styles.text, styles.text_credit)}>
               Кредиты на любой случай
             </p>
-            <Link className={cn(styles.link, styles.link_credit)} to="#credit">
+            <a className={cn(styles.link, styles.link_credit)} href={'#credit'}>
               Рассчитать кредит
-            </Link>
+            </a>
           </div>
         </SwiperSlide>
         <SwiperSlide className={cn(styles.slide, styles.slide_man)}>
@@ -53,9 +52,9 @@ function Slider() {
             <p className={styles.text}>
               Всегда рядом
             </p>
-            <Link className={styles.link} to="#map">
+            <a className={styles.link} href={'#map'}>
               Найти отделение
-            </Link>
+            </a>
           </div>
         </SwiperSlide>
       </Swiper>
