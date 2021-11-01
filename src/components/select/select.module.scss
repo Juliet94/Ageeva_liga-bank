@@ -51,11 +51,15 @@
 }
 
 .list {
-  margin: 0 0 35px;
+  margin: 0 0 -4px;
   overflow: hidden;
   border: 1px solid #1f1e25;
   border-top: none;
   border-radius: 0 0 4px 4px;
+
+  @media (max-width: 767px) {
+    margin-bottom: 0;
+  }
 }
 
 .list_item {

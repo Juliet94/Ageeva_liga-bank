@@ -3,13 +3,15 @@
   width: 100%;
   height: 389px;
   background-color: #f6f7ff;
-  padding: 60px 58px;
+  padding: 35px 58px 60px;
   border-radius: 4px;
+  margin-top: 26px;
 
   @media (max-width: 1023px) {
-    max-width: 678px;
+    max-width: unset;
     padding: 34px 60px;
-    margin-bottom: 35px;
+    margin-bottom: 42px;
+    margin-top: 0;
   }
 
   @media (max-width: 767px) {
@@ -17,7 +19,7 @@
     min-width: 290px;
     min-height: 433px;
     padding: 19px 15px;
-    margin-bottom: 17px;
+    margin-bottom: 26px;
   }
 }
 
@@ -116,6 +118,7 @@
 
   @media (max-width: 1023px) {
     min-width: 558px;
+    width: 100%;
   }
 
   @media (max-width: 767px) {

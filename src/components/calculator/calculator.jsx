@@ -119,7 +119,7 @@ function Calculator({setCreditData}) {
   return (
     <form className={styles.form}>
       <div className={styles.wrapper}>
-        <div>
+        <div className={styles.wrapper_select}>
           <h3 className={styles.heading}>
             Шаг 1. Цель кредита
           </h3>

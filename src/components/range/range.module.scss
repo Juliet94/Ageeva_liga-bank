@@ -9,7 +9,7 @@
   width: 100%;
 
   @media (max-width: 1023px) {
-    max-width: 678px;
+    max-width: unset;
   }
 
   &:focus {

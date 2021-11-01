@@ -17,7 +17,7 @@
 
   @media (max-width: 1023px) {
     margin-right: 0;
-    max-width: 678px;
+    max-width: unset;
     margin-bottom: 37px;
   }
 
@@ -26,9 +26,14 @@
   }
 }
 
+.wrapper_select {
+  margin-bottom: 7px;
+}
+
 .heading {
   font-size: 22px;
   font-weight: 500;
+  margin-bottom: 24px;
 
   @media (max-width: 1023px) {
     font-size: 18px;
@@ -46,10 +51,14 @@
 }
 
 .wrapper_parameters {
-  padding-top: 19px;
+  padding-top: 8px;
+
+  @media (max-width: 1023px) {
+    padding-top: 12px;
+  }
 
   @media (max-width: 767px) {
-    padding-top: 10px;
+    padding-top: 3px;
   }
 }
 
