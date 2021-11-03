@@ -94,20 +94,18 @@ function Application({creditData, setCreditData, setIsPopupOpen}) {
         </span>
       </div>
       <form className={styles.form} onSubmit={onFormSubmit}>
-        <div>
-          <label>
-            <span className="visually-hidden"> Введите ФИО </span>
-            <input
-              className={styles.input}
-              type="text"
-              placeholder="ФИО"
-              ref={nameRef}
-              value={name}
-              onChange={(evt) => setName(evt.target.value)}
-              required
-            />
-          </label>
-        </div>
+        <label>
+          <span className="visually-hidden"> Введите ФИО </span>
+          <input
+            className={styles.input}
+            type="text"
+            placeholder="ФИО"
+            ref={nameRef}
+            value={name}
+            onChange={(evt) => setName(evt.target.value)}
+            required
+          />
+        </label>
         <div className={styles.input_wrapper}>
           <label>
             <span className="visually-hidden"> Введите телефон </span>

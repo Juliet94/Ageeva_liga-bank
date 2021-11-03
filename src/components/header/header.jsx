@@ -28,6 +28,11 @@ function Header() {
           type="button"
           onClick={() => setIsMenuOpen(true)}
         />
+        <button
+          className={cn(styles.button_close, isMenuOpen && styles.button_close_menu_open)}
+          type="button"
+          onClick={() => setIsMenuOpen(false)}
+        />
         <Logo isMenuOpen={isMenuOpen} />
         <nav className={cn(styles.nav, isMenuOpen && styles.nav_menu_open)}>
           <SiteMenu isMenuOpen={isMenuOpen}/>
@@ -43,11 +48,6 @@ function Header() {
           >
             Войти в Интернет-банк
           </a>
-          <button
-            className={cn(styles.button_close, isMenuOpen && styles.button_close_menu_open)}
-            type="button"
-            onClick={() => setIsMenuOpen(false)}
-          />
         </div>
         {isModalOpen && <Login isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />}
       </div>
