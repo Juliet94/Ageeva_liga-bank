@@ -54,7 +54,7 @@ function Services() {
             className={cn('slider_tabs', styles.slider_tabs)}
             onSwiper={setSwiper}
             thumbs={{swiper: thumbsSwiper}}
-            simulateTouch={false}
+            simulateTouch
             pagination
             a11y
           >
