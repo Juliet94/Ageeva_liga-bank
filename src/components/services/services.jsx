@@ -6,6 +6,20 @@ import styles from './services.module.scss';
 import {Swiper, SwiperSlide} from 'swiper/react';
 import SwiperCore, {Thumbs, Pagination, A11y} from 'swiper';
 
+import desktopPig from '../../assets/images/desktop-tabs-pig.jpg';
+import tabletPig from '../../assets/images/tablet-tabs-pig.jpg';
+import mobilePig from '../../assets/images/mobile-tabs-pig.jpg';
+import desktopCar from '../../assets/images/desktop-tabs-car.jpg';
+import tabletCar from '../../assets/images/tablet-tabs-car.jpg';
+import mobileCar from '../../assets/images/mobile-tabs-car.jpg';
+import desktopLock from '../../assets/images/desktop-tabs-lock.jpg';
+import tabletLock from '../../assets/images/tablet-tabs-lock.jpg';
+import mobileLock from '../../assets/images/mobile-tabs-lock.jpg';
+import desktopMobile from '../../assets/images/desktop-tabs-mobile.jpg';
+import tabletMobile from '../../assets/images/tablet-tabs-mobile.jpg';
+import mobileMobile from '../../assets/images/mobile-tabs-mobile.jpg';
+
+
 SwiperCore.use([Thumbs, Pagination, A11y]);
 
 function Services() {
@@ -59,7 +73,7 @@ function Services() {
             a11y
           >
             <SwiperSlide
-              className={cn(styles.slide_tabs, styles.slide_tabs_pig)}
+              className={styles.slide_tabs}
               tabIndex='0'
               onFocus={() => swiper.slideTo(0)}
             >
@@ -80,9 +94,14 @@ function Services() {
               <Link className={styles.link} to="/">
                 Узнать подробнее
               </Link>
+              <picture>
+                <source media="(max-width: 767px)" srcSet={mobilePig} />
+                <source media="(max-width: 1023px)" srcSet={tabletPig} />
+                <img alt="Свинья-копилка с монетами" className={styles.img} src={desktopPig} />
+              </picture>
             </SwiperSlide>
             <SwiperSlide
-              className={cn(styles.slide_tabs, styles.slide_tabs_car)}
+              className={styles.slide_tabs}
               tabIndex='0'
               onFocus={() => swiper.slideTo(1)}
             >
@@ -104,9 +123,14 @@ function Services() {
                 Рассчитайте ежемесячный платеж <br /> и ставку по кредиту воспользовавшись <br /> нашим&nbsp;
                 <a className={styles.link_in_text} href={'#credit'}>кредитным калькулятором</a>
               </p>
+              <picture>
+                <source media="(max-width: 767px)" srcSet={mobileCar} />
+                <source media="(max-width: 1023px)" srcSet={tabletCar} />
+                <img alt="Машина на стопке монет" className={styles.img} src={desktopCar} />
+              </picture>
             </SwiperSlide>
             <SwiperSlide
-              className={cn(styles.slide_tabs, styles.slide_tabs_lock)}
+              className={styles.slide_tabs}
               tabIndex='0'
               onFocus={() => swiper.slideTo(2)}
             >
@@ -127,9 +151,14 @@ function Services() {
               <Link className={styles.link} to="/">
                 Узнать подробнее
               </Link>
+              <picture>
+                <source media="(max-width: 767px)" srcSet={mobileLock} />
+                <source media="(max-width: 1023px)" srcSet={tabletLock} />
+                <img alt="Закрытый замок с сердечком" className={styles.img} src={desktopLock} />
+              </picture>
             </SwiperSlide>
             <SwiperSlide
-              className={cn(styles.slide_tabs, styles.slide_tabs_mobile)}
+              className={styles.slide_tabs}
               tabIndex='0'
               onFocus={() => swiper.slideTo(3)}
             >
@@ -147,6 +176,11 @@ function Services() {
               <Link className={styles.link} to="/">
                 Узнать подробнее
               </Link>
+              <picture>
+                <source media="(max-width: 767px)" srcSet={mobileMobile} />
+                <source media="(max-width: 1023px)" srcSet={tabletMobile} />
+                <img alt="Мобильный телефон с приложением Лига Банк" className={styles.img} src={desktopMobile} />
+              </picture>
             </SwiperSlide>
           </Swiper>
         </div>

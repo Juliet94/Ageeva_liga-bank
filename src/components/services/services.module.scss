@@ -134,6 +134,7 @@
 }
 
 .slide_tabs {
+  position: relative;
   background-color: #f6f7ff;
   display: flex;
   flex-direction: column;
@@ -151,60 +152,6 @@
     padding: 54px 15px;
     background-position: 100% 40%;
   }
-
-  &_pig {
-    background-image: url('../../assets/images/desktop-tabs-pig.jpg');
-
-    @media (max-width: 1023px) {
-      background-image: url('../../assets/images/tablet-tabs-pig.jpg');
-    }
-
-    @media (max-width: 767px) {
-      background-image: url('../../assets/images/mobile-tabs-pig.jpg');
-    }
-  }
-
-  &_car {
-    background-image: url('../../assets/images/desktop-tabs-car.jpg');
-
-    @media (max-width: 1023px) {
-      background-image: url('../../assets/images/tablet-tabs-car.jpg');
-    }
-
-    @media (max-width: 767px) {
-      background-image: url('../../assets/images/mobile-tabs-car.jpg');
-    }
-  }
-
-  &_lock {
-    background-position: 81% 40%;
-    background-image: url('../../assets/images/desktop-tabs-lock.jpg');
-
-    @media (max-width: 1023px) {
-      background-position: 91% 50%;
-      background-image: url('../../assets/images/tablet-tabs-lock.jpg');
-    }
-
-    @media (max-width: 767px) {
-      background-position: 100% 40%;
-      background-image: url('../../assets/images/mobile-tabs-lock.jpg');
-    }
-  }
-
-  &_mobile {
-    background-position: 81% 45%;
-    background-image: url('../../assets/images/desktop-tabs-mobile.jpg');
-
-    @media (max-width: 1023px) {
-      background-position: 91% 50%;
-      background-image: url('../../assets/images/tablet-tabs-mobile.jpg');
-    }
-
-    @media (max-width: 767px) {
-      background-position: 100% 40%;
-      background-image: url('../../assets/images/mobile-tabs-mobile.jpg');
-    }
-  }
 }
 
 .text {
@@ -214,6 +161,7 @@
   margin-bottom: 12px;
   line-height: 140%;
   max-width: 406px;
+  z-index: 10;
 
   @media (max-width: 1023px) {
     font-size: 18px;
@@ -235,6 +183,7 @@
 .list {
   position: relative;
   margin-bottom: 19px;
+  z-index: 10;
 
   @media (max-width: 1023px) {
     margin-bottom: 15px;
@@ -307,6 +256,7 @@
   border-radius: 4px;
   border: none;
   transition: background-color 0.25s ease-out;
+  z-index: 10;
 
   @media (max-width: 1023px) {
     min-height: 48px;
@@ -327,10 +277,27 @@
   }
 }
 
+.img {
+  position: absolute;
+  top: 60px;
+  right: 135px;
+  z-index: 5;
+
+  @media (max-width: 1023px) {
+    right: 45px;
+  }
+
+  @media (max-width: 767px) {
+    top: 98px;
+    right: 0;
+  }
+}
+
 .text_with_link {
   font-size: 18px;
   line-height: 140%;
   margin-top: 0;
+  z-index: 10;
 
   @media (max-width: 1023px) {
     font-size: 16px;
