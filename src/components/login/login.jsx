@@ -19,7 +19,7 @@ function Login({isModalOpen, setIsModalOpen}) {
 
   const loginRef = useRef('');
 
-  const onSubmitButtonClick = (evt) => {
+  const onFormSubmit = (evt) => {
     evt.preventDefault();
     setIsModalOpen(false);
     localStorage.clear();
@@ -45,7 +45,10 @@ function Login({isModalOpen, setIsModalOpen}) {
             onClick={() => setIsModalOpen(false)}
           />
         </div>
-        <form className={styles.form}>
+        <form 
+          className={styles.form}
+          onSubmit={onFormSubmit}
+        >
           <label className={styles.label}>
             Логин
             <input
@@ -53,6 +56,7 @@ function Login({isModalOpen, setIsModalOpen}) {
               type="text"
               value={login}
               ref={loginRef}
+              required
               onChange={(evt) => setLogin(evt.target.value)}
             />
           </label>
@@ -62,6 +66,7 @@ function Login({isModalOpen, setIsModalOpen}) {
               className={styles.input}
               type={buttonShowPressed ? 'text' : 'password'}
               value={password}
+              required
               onChange={(evt) => setPassword(evt.target.value)}
             />
           </label>
@@ -75,11 +80,7 @@ function Login({isModalOpen, setIsModalOpen}) {
           <Link className={styles.link} to="/">
             Забыли пароль?
           </Link>
-          <button
-            className={styles.button_submit}
-            type="submit"
-            onClick={onSubmitButtonClick}
-          >
+          <button className={styles.button_submit} type="submit">
             Войти
           </button>
         </form>
