@@ -45,7 +45,7 @@ function Login({isModalOpen, setIsModalOpen}) {
             onClick={() => setIsModalOpen(false)}
           />
         </div>
-        <form 
+        <form
           className={styles.form}
           onSubmit={onFormSubmit}
         >
