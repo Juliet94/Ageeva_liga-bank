@@ -16,7 +16,7 @@ function Range({value, onRangeChange, min, max, step, isTime = false}) {
       />
       <div className={styles.span_wrapper}>
         <span className={styles.span}>
-          {isTime ? `${min} лет` : `${min * 100}%`}
+          {isTime ? `${min} лет` : `${value * 100}%`}
         </span>
         {isTime && <span className={styles.span}>{max} лет</span>}
       </div>

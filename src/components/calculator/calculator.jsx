@@ -32,6 +32,9 @@ function Calculator({setCreditData}) {
       setRangeDownPayment(CreditInfo[purpose].DOWN_PAYMENT.MIN);
       setTime(getYearString(CreditInfo[purpose].TIME.MIN));
       setRangeTime(CreditInfo[purpose].TIME.MIN);
+      setMaternalCapital(false);
+      setLifeInsurance(false);
+      setCarInsurance(false);
     }
   }, [purpose]);
 
