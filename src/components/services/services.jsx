@@ -97,7 +97,7 @@ function Services() {
               <picture>
                 <source media="(max-width: 767px)" srcSet={mobilePig} />
                 <source media="(max-width: 1023px)" srcSet={tabletPig} />
-                <img alt="Свинья-копилка с монетами" className={styles.img} src={desktopPig} />
+                <img alt="Свинья-копилка с монетами" className={cn(styles.img, styles.img_pig)} src={desktopPig} />
               </picture>
             </SwiperSlide>
             <SwiperSlide

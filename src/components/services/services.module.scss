@@ -280,11 +280,23 @@
 .img {
   position: absolute;
   top: 60px;
-  right: 135px;
+  left: 51%;
+  width: min-content;
   z-index: 5;
+
+  @media (max-width: 1100px) {
+    max-width: 400px;
+
+    &_pig {
+      left: 55%;
+      max-width: 370px;
+    }
+  }
 
   @media (max-width: 1023px) {
     right: 45px;
+    left: unset;
+    max-width: unset;
   }
 
   @media (max-width: 767px) {
