@@ -2,11 +2,6 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import styles from  './socials.module.scss';
 
-// import facebook from '../../assets/images/icon-facebook.svg';
-// import instagram from '../../assets/images/icon-instagram.svg';
-// import twitter from '../../assets/images/icon-twitter.svg';
-// import youtube from '../../assets/images/icon-youtube.svg';
-
 function Socials() {
   return (
     <ul className={styles.list}>
