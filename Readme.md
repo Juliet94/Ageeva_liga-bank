@@ -5,7 +5,6 @@ Credit calculator
 ## Technologies
 
 - React (react hooks)
-- Redux / Redux Toolkit
 - SCSS, CSS Modules
 - Responsive design (320px +)
 
